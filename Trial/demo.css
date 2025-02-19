@@ -1,0 +1,446 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Job card container adjustments */
+.job-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Job card styling */
+.job-card {
+    width: 300px; /* Ensure the job card has a fixed width */
+    margin: 15px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.job-card img {
+    max-width: 50px;
+    margin-bottom: 15px;
+}
+
+.job-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.job-card .desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Button Styling for Apply and View */
+.job-card button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.job-card button.view-btn {
+    background-color: #007bff; /* Blue for View button */
+}
+
+.job-card button:hover {
+    background-color: #218838;
+}
+
+.job-card button.view-btn:hover {
+    background-color: #0056b3; /* Darker blue for View button */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .job-card-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center cards */
+    }
+
+    .job-card {
+        width: 90%; /* Ensure cards are not too wide on smaller screens */
+        margin: 15px 0;
+    }
+
+    .job-card button {
+        width: 100%; /* Make buttons full width on smaller screens */
+    }
+
+    .search-bar input, .search-bar button {
+        width: 80%; /* Make search bar components more mobile-friendly */
+        margin: 10px 0;
+    }
+
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+    }
+
+    /* Modal size on mobile */
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Apply Form Modal Styling */
+#applyModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 80%; /* Make modal more responsive */
+    }
+}
+
+/* Form Input Styling */
+input[type="text"], input[type="email"], input[type="url"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 250px; /* Adjust the width for responsiveness */
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .search-input {
+        max-width: 100%;
+    }
+    .search-btn {
+        width: 100%;
+    }
+}
+
+
+/* Styling for the Job Description Modal */
+#jobDescriptionModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensures it's above other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enables scrolling if content overflows */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content Styling */
+#jobDescriptionModal .modal-content {
+    background-color: white;
+    margin: 10% auto; /* Centered vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%; /* Adjust modal width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out; /* Add a smooth fade-in effect */
+}
+
+/* Close Button */
+#jobDescriptionModal .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#jobDescriptionModal .close-btn:hover,
+#jobDescriptionModal .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Job Details Styling */
+#jobDescriptionModal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#jobDescriptionModal p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+#jobDescriptionModal .apply-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#jobDescriptionModal .apply-btn:hover {
+    background-color: #218838;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #jobDescriptionModal .modal-content {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    #jobDescriptionModal h2 {
+        font-size: 20px; /* Adjust heading size for smaller screens */
+    }
+
+    #jobDescriptionModal p {
+        font-size: 14px; /* Adjust paragraph size */
+    }
+}
+
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it's above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Adjust width as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resetBtn {
+    background-color: #f44336;
+}
+
+#resetBtn:hover {
+    background-color: #e53935;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    color: #555;
+}
+
+#job_results {
+    margin-top: 30px;
+}
+
+.apply-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.apply-btn:hover {
+    background-color: #0056b3;
+}

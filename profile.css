@@ -1,0 +1,457 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    /* Adding space between navbar and container */
+    margin-bottom: 40px;
+}
+
+/* Your other styles can stay the same */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #333;
+}
+
+.header .logout-btn {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header .logout-btn:hover {
+    background-color: #e53935;
+}
+
+/* Filter and job section styling */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.filter-fields select,
+.filter-fields input {
+    width: 220px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resetBtn {
+    background-color: #f44336;
+}
+
+#resetBtn:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .filter-fields select,
+    .filter-fields input {
+        width: 100%;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    color: #555;
+}
+
+.apply-btn,
+.view-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.apply-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.apply-btn:hover {
+    background-color: #0056b3;
+}
+
+.view-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: #218838;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: #343a40;
+    /* Dark theme */
+    padding: 15px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #17a2b8 !important;
+    /* Bootstrap info color */
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #343a40;
+    color: white;
+    border-bottom: 2px solid #17a2b8;
+}
+
+.modal-body p {
+    font-size: 16px;
+}
+
+/*-------------------------------------------------*/
+
+/* Styling for the Job Description Modal */
+#jobDescriptionModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensures it's above other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enables scrolling if content overflows */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content Styling */
+#jobDescriptionModal .modal-content {
+    background-color: white;
+    margin: 10% auto; /* Centered vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%; /* Adjust modal width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out; /* Add a smooth fade-in effect */
+}
+
+/* Close Button */
+#jobDescriptionModal .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#jobDescriptionModal .close-btn:hover,
+#jobDescriptionModal .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Job Details Styling */
+#jobDescriptionModal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#jobDescriptionModal p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+#jobDescriptionModal .apply-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#jobDescriptionModal .apply-btn:hover {
+    background-color: #218838;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #jobDescriptionModal .modal-content {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    #jobDescriptionModal h2 {
+        font-size: 20px; /* Adjust heading size for smaller screens */
+    }
+
+    #jobDescriptionModal p {
+        font-size: 14px; /* Adjust paragraph size */
+    }
+}
+
+
+
+/*-------------------------------------*/
+/* Apply Now Modal Styling */
+#applyModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Header */
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #d9534f;
+}
+
+/* Form Fields */
+#applyForm label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+#applyForm input,
+#applyForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#applyForm input:focus,
+#applyForm textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit Button */
+#applyForm button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#applyForm button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
